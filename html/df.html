@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send WhatsApp Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('../img/monarc_nightlook.jpeg');
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 40px 50px;
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+      transition: all 0.3s ease;
+    }
+
+    .container:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .container.zoomed {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #ffffff, #06ddff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .colorful-text {
+      font-size: 22px;
+      font-weight: 600;
+      background: linear-gradient(to right, #ffffff, #06ddff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+      margin-bottom: 25px;
+    }
+
+    input {
+      padding: 14px;
+      font-size: 16px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input:focus {
+      box-shadow: 0 0 8px #26d0ce88;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 17px;
+      background: linear-gradient(to right, #1a2980, #26d0ce);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #26d0ce, #1a2980);
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="mainCard">
+  <h2>MONARC NEXUS</h2>
+  <div class="subheading colorful-text">Send Project Info on WhatsApp</div>
+  <input type="text" id="phoneNumber" placeholder="Enter phone number (e.g. 7874777470)" />
+  <button onclick="sendMessage()">Send Message</button>
+</div>
+
+<script>
+  const message = `📄 Monarc Nexus – Project Details
+
+🔗 Brochure : https://drive.google.com/file/d/1dg7O0S5iR6bMYz27tjxADo2Rc9bAcTnl/view?usp=drivesdk
+
+📍 Site Location : https://maps.app.goo.gl/MgcsscnUBq8jWr2L6
+
+📸 (Image for reference attached below)
+
+🏢 Project Name: Monarc Nexus
+
+📍 Residential + Commercial
+     | 14-Story Premium Development
+
+🚦 Prime 3-Side Road Connectivity:
+
+ Connected Roads
+▪36 Meter Road – Ahm-Palanpur Hwy Rd ↔ SG Hwy
+▪18 Meter Road ↔ 200 ft Ring Road
+▪12 Meter Road – Intern TP Road`;
+
+  function sendMessage() {
+    const phone = document.getElementById("phoneNumber").value.trim();
+    if (!phone) {
+      alert("Please enter a phone number.");
+      return;
+    }
+
+    const fullNumber = phone.startsWith('+') ? phone : '91' + phone;
+    const url = `https://wa.me/${fullNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+
+  const input = document.getElementById("phoneNumber");
+  const card = document.getElementById("mainCard");
+
+  input.addEventListener("focus", () => {
+    card.classList.add("zoomed");
+  });
+
+  input.addEventListener("blur", () => {
+    card.classList.remove("zoomed");
+  });
+
+  input.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
+</script>
+</body>
+</html>

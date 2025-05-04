@@ -2,168 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Send WhatsApp Message</title>
+  <title>Monarc Nexus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('../img/monarc_nightlook.jpeg');
-      background-size: cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-
-    .container {
-      position: relative;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      padding: 40px 50px;
-      text-align: center;
-      max-width: 520px;
-      margin: 30px 30px;
-      width: 50%;
-      transition: all 0.3s ease;
-    }
-
-    .container:focus-within {
-      transform: scale(1.03);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-    }
-
-    h2 {
-      font-size: 40px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      background: linear-gradient(to right, #ffffff, #06ddff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .colorful-text {
-      font-size: 18px;
-      font-weight: 600;
-      background: linear-gradient(to right, #ffffff, #06ddff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
-    }
-
-    input {
-      padding: 14px;
-      font-size: 16px;
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      font-family: 'Poppins', sans-serif;
-      outline: none;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    input:focus {
-      box-shadow: 0 0 8px #26d0ce88;
-    }
-
-    button {
-      padding: 14px 28px;
-      font-size: 17px;
-      background: linear-gradient(to right, #1a2980, #26d0ce);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      font-family: 'Poppins', sans-serif;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    button:hover {
-      background: linear-gradient(to right, #26d0ce, #1a2980);
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      display: none;
-      z-index: 1000;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="overlay"></div>
-<div class="container">
-  <h2>MONARC NEXUS</h2>
-  <div class="subheading colorful-text">Send Project Info on WhatsApp</div>
 
-  <input style= "font-size: 10px" type="text" id="phoneNumber" placeholder="Enter phone number (e.g. 7874777470)" />
 
-  <button onclick="sendMessage()">Send Message</button>
-  <button onclick="copyMessage()" style="margin-top: 10px; background: #444;">Copy Message</button>
+<div style="text-align: center; margin-top: 30px;">
+  <img src="img/single_BlacknOrange_logo-removebg-preview.png" style="max-width: 350px; width: 30%; height: auto;" />
 </div>
 
-<div class="toast" id="toast">WhatsApp opened. You can now send the message!</div>
+<section class="section" id="send-info">
+  <h2>Send Project Info</h2>
+  <div class="container">
+    <input type="text" id="phoneNumber" placeholder="Enter phone number (e.g. 7874777470)" />
+    <button onclick="sendMessage()">Send Message</button>
+    <button onclick="copyMessage()" style="background: #444;">Copy Message</button>
+    <button onclick="downloadBrochure()" class="brochure-button">
+      📥 Download Brochure (PDF)
+    </button>
+  </div>
+</section>
 
-<script>
-  const message = `📄 Monarc Nexus – Project Details\n\n🔗 Brochure : https://drive.google.com/file/d/1dg7O0S5iR6bMYz27tjxADo2Rc9bAcTnl/view?usp=drivesdk\n\n📍 Site Location : https://maps.app.goo.gl/MgcsscnUBq8jWr2L6\n\n📸 (Image for reference attached below)\n\n🏢 Project Name: Monarc Nexus\n\n📍 Residential + Commercial\n     | 14-Story Premium Development\n\n🚦 Prime 3-Side Road Connectivity:\n\n Connected Roads\n▪36 Meter Road – Ahm-Palanpur Hwy Rd ↔ SG Hwy\n▪18 Meter Road ↔ 200 ft Ring Road\n▪12 Meter Road – Intern TP Road`;
+<section class="section" id="overview">
+  <h2>Company Overview</h2>
+  <div class="info-box">
+    <h3>Mission & Vision</h3>
+    <p><strong>Mission:</strong> To deliver high-quality construction solutions that exceed expectations.<br>
+      <strong>Vision:</strong> To be a trusted leader in the real estate industry with innovative designs and reliable execution.</p>
+    <p><strong>Years of Experience:</strong> 15+ years in construction and real estate development.</p>
+    <p><strong>Licenses / Certifications:</strong> ISO 9001:2015 Certified, RERA Registered.</p>
+  </div>
+</section>
 
-  function sendMessage() {
-    const phone = document.getElementById("phoneNumber").value.trim();
-    if (!/^[0-9]{10}$/.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
-      return;
-    }
+<section class="section" id="projects">
+  <h2>Ongoing & Completed Projects</h2>
+  <div class="info-box">
+    <ul class="project-list">
+      <li class="statusOngoing">
+        <strong>Project:</strong> Monarc Nexus<br>
+        <strong>Type:</strong> Residential + Commercial<br>
+        <strong>Stories:</strong> 14<br>
+        <strong>Status:</strong> Ongoing<br>
+        <strong>Year:</strong> 2024<br>
+        <strong>Location:</strong> Ahmedabad - Zundal
+        <p><a href="https://maps.app.goo.gl/fH46HmRUPCdML8xN8" style="color:#00ffff;">View on Google Maps</a></p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7731.7791407323075!2d72.57986877573104!3d23.139587789457558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e830053dfa877%3A0x87f251259ec4bbd5!2sMonarc%20Nexus!5e1!3m2!1sen!2sin!4v1745659936992!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </li>
+      <li class="statusCompleted">
+        <strong>Project:</strong> Monarc Clans<br>
+        <strong>Type:</strong> Residential<br>
+        <strong>Stories:</strong> 14<br>
+        <strong>Status:</strong> Completed<br>
+        <strong>Year:</strong> 2023<br>
+        <strong>Location:</strong> Ahmedabad - Zundal
+        <p><a href="https://maps.app.goo.gl/ANkmNWs1jAWsW2xX9" style="color:#00ffff;">View on Google Maps</a></p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.7424447253948!2d72.57151917564268!3d23.13393017909584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e837c598f64bd%3A0x3440e358a1c11f2!2sMonarc%20Clans!5e1!3m2!1sen!2sin!4v1746356077118!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </li>
+      <li class="statusCompleted">
+        <strong>Project:</strong> Monarc Crystal<br>
+        <strong>Type:</strong> Residential + Commercial<br>
+        <strong>Stories:</strong> 7<br>
+        <strong>Status:</strong> Completed<br>
+        <strong>Year:</strong> 2018<br>
+        <strong>Location:</strong> Ahmedabad - New Chandkheda
+        <p><a href="https://maps.app.goo.gl/HZXkSHXYQznYgoKC7" style="color:#00ffff;">View on Google Maps</a></p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.0960082395063!2d72.56758258336016!3d23.12199802522593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e830005a2ff4f%3A0xdcf5eac13d72a9c2!2sMonarc%20Crystal!5e1!3m2!1sen!2sin!4v1746356141915!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </li>
+      <li class="statusCompleted">
+        <strong>Project:</strong> Monarc County<br>
+        <strong>Type:</strong> Residential<br>
+        <strong>Stories:</strong> 7<br>
+        <strong>Status:</strong> Completed<br>
+        <strong>Year:</strong> 2017<br>
+        <strong>Location:</strong> Ahmedabad - New Chandkheda
+        <p><a href="https://maps.app.goo.gl/CgWbaV6zje83LfYX7" style="color:#00ffff;">View on Google Maps</a></p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.098370629349!2d72.57024107564227!3d23.12191827910427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8259925c5acd%3A0xe71a9be7db586d63!2sMonarc%20County!5e1!3m2!1sen!2sin!4v1746356176497!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </li>
+    </ul>
 
-    const fullNumber = '91' + phone;
-    const url = `https://wa.me/${fullNumber}?text=${encodeURIComponent(message)}`;
+    <p>Visit our gallery for more photos and details.</p>
+  </div>
+</section>
 
-    if (navigator.vibrate) navigator.vibrate(100);
-    window.open(url, "_blank");
-    showToast();
-  }
+<section class="section" id="contact">
+  <h2>Contact Information</h2>
+  <div class="info-box">
+    <p><strong>Email:</strong>
+      2024shreekrishnadevelopers
+      @gmail.com<br></p>
+    <p><strong>Phone:</strong> +91 78 74 77 74 70<br></p>
+  </div>
+</section>
 
-  function copyMessage() {
-    navigator.clipboard.writeText(message).then(() => alert("Message copied to clipboard!"));
-  }
+<section class="section" id="legal">
+  <h2>Legal & Compliance Info</h2>
+  <div class="info-box">
+    <p><strong>GSTIN: </strong> 24AFIFS0056H1Z4<br>
+      <strong>RERA Registration No.:</strong>
+      PR/GJ/GANDHINAGAR
+      /GANDHINAGAR
+      /Gandhinagar Municipal Corporation
+      /MAA15095/150425/311229</p>
+  </div>
+</section>
 
-  function showToast() {
-    const toast = document.getElementById("toast");
-    toast.style.display = 'block';
-    setTimeout(() => toast.style.display = 'none', 3000);
-  }
-
-  document.getElementById("phoneNumber").addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
-  });
-</script>
-</body>
-</html>

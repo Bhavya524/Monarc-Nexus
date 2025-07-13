@@ -1,6 +1,6 @@
 // script.js
 
-const message = `📄 Monarc Nexus – Project Details\n\n🔗 Brochure : https://drive.google.com/file/d/1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN/view?usp=drive_link\n\n📍 Site Location : https://maps.app.goo.gl/MgcsscnUBq8jWr2L6\n\n📸 (Image for reference attached below)\n\n🏢 Project Name: Monarc Nexus\n\n📍 Residential + Commercial\n     | 14-Story Premium Development\n\n🚦 Prime 3-Side Road Connectivity:\n\n Connected Roads\n▪36 Meter Road – Ahm-Palanpur Hwy Rd ↔ SG Hwy\n▪18 Meter Road ↔ 200 ft Ring Road\n▪12 Meter Road – Intern TP Road`;
+const message = `📄 Monarc Nexus – Project Details\n\n🔗 Brochure : https://drive.google.com/file/d/1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN/view?usp=sharing\n\n📍 Site Location : https://maps.app.goo.gl/MgcsscnUBq8jWr2L6\n\n📸 (Image for reference attached below)\n\n🏢 Project Name: Monarc Nexus\n\n📍 Residential + Commercial\n     | 14-Story Premium Development\n\n🚦 Prime 3-Side Road Connectivity:\n\n Connected Roads\n▪36 Meter Road – Ahm-Palanpur Hwy Rd ↔ SG Hwy\n▪18 Meter Road ↔ 200 ft Ring Road\n▪12 Meter Road – Intern TP Road`;
 
 function sendMessage() {
   const phone = document.getElementById("phoneNumber").value.trim();
@@ -21,8 +21,12 @@ function copyMessage() {
 
 function downloadBrochure() {
   const brochureLink = "https://drive.google.com/uc?export=download&id=1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN";
-  window.open(brochureLink, "_blank");
-  console.log("User clicked to download the brochure.");
+  const a = document.createElement("a");
+  a.href = brochureLink;
+  a.download = "";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);  console.log("User clicked to download the brochure.");
 }
 
 function showToast() {

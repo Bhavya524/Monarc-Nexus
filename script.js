@@ -1,6 +1,7 @@
 // script.js
 
-const message = `📄 Monarc Nexus – Project Details\n\n🔗 Brochure : https://drive.google.com/file/d/1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN/view?usp=sharing\n\n📍 Site Location : https://maps.app.goo.gl/MgcsscnUBq8jWr2L6\n\n📸 (Image for reference attached below)\n\n🏢 Project Name: Monarc Nexus\n\n📍 Residential + Commercial\n     | 14-Story Premium Development\n\n🚦 Prime 3-Side Road Connectivity:\n\n Connected Roads\n▪36 Meter Road – Ahm-Palanpur Hwy Rd ↔ SG Hwy\n▪18 Meter Road ↔ 200 ft Ring Road\n▪12 Meter Road – Intern TP Road`;
+const message = `Hello,\nI am interested in your project.Please share more info.`;
+
 
 function sendMessage() {
   const phone = document.getElementById("phoneNumber").value.trim();
@@ -8,7 +9,7 @@ function sendMessage() {
     alert("Please enter a valid 10-digit phone number.");
     return;
   }
-  const fullNumber = '91' + phone;
+  const fullNumber = '91' + 7874777470;
   const url = `https://wa.me/${fullNumber}?text=${encodeURIComponent(message)}`;
   if (navigator.vibrate) navigator.vibrate(100);
   window.open(url, "_blank");

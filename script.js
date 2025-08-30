@@ -13,6 +13,7 @@ function sendMessage() {
   const url = `https://wa.me/${fullNumber}?text=${encodeURIComponent(message)}`;
   if (navigator.vibrate) navigator.vibrate(100);
   window.open(url, "_blank");
+  logAction(fullNumber,"Send Message");
   showToast();
 }
 
@@ -21,13 +22,15 @@ function copyMessage() {
 }
 
 function downloadBrochure() {
-  const brochureLink = "https://drive.google.com/uc?export=download&id=1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN";
+  const brochureLink = "https://drive.google.com/file/d/1oiPoEB0zeJSd-ZqvCixrvPQ4xXn10oCN/view?usp=sharing";
   const a = document.createElement("a");
   a.href = brochureLink;
   a.download = "";
   document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);  console.log("User clicked to download the brochure.");
+  document.body.removeChild(a);
+  console.log("User clicked to download the brochure.");
+  logAction("N/A","downloadBrochure");
 }
 
 function showToast() {
@@ -41,3 +44,31 @@ document.getElementById("phoneNumber").addEventListener("keypress", function (e)
     sendMessage();
   }
 });
+
+function logAction(phone,action) {
+  const p = phone?.value || "N/A";
+  const data = {
+    phone: p,
+    action: action,
+    time: new Date().toISOString()
+  };
+
+  fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {"Content-Type": "application/json"}
+  })
+    .then(res => console.log("Logged:", action))
+    .catch(err => console.error("Error logging:", err));
+}
+
+// function sendMessage() {
+//   logAction("Send Message");
+//   // your existing WhatsApp code here
+// }
+//
+// function downloadBrochure() {
+//   logAction("Download Brochure");
+//   // your existing brochure code here
+// }
+
